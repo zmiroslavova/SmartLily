@@ -10,38 +10,37 @@ namespace SmartLily
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
+            Console.Write("Please input the price on the phone: ");
             double phonePrice = double.Parse(Console.ReadLine());
-            double lilyPresent = 0;
-            double lilyMoney = 0;
+            double lillyPresents = 0;
+            double lillyMoney = 0;
             double brotherMoney = 0;
 
             for (int year = 1; year <= 100 ; year++)
             {
                 if (year%2 != 0)
                 {
-                    lilyPresent += 1;
+                    lillyPresents += 1;
                     if (year > 1)
                     {
-                        lilyPresent -= 1;
-                        lilyMoney = lilyMoney + (year - 2);
-                        lilyMoney -= 1;
+                        lillyPresents -= 1;
+                        lillyMoney = lillyMoney + (year - 2);
+                        lillyMoney -= 1;
                         brotherMoney += 1;
                     }
                 }
                 else
                 {
-                    lilyMoney += 10;
-                    lilyMoney -= 1;
+                    lillyMoney += (10*year)/2;
+                    lillyMoney -= 1;
                     brotherMoney += 1;
                 }
 
-                if (lilyMoney >= phonePrice)
+                if (lillyMoney >= phonePrice)
                 {
-                    Console.WriteLine($"Лили стана на {year} години, когато успя да си купи телефона!");
-                    Console.WriteLine($"Брат й получи {brotherMoney} лева от Лили!");
-                    Console.WriteLine($"След покупката на Лили ѝ останаха {lilyMoney - phonePrice} лева!");
+                    Console.WriteLine($"Lilly became {year} years old when she was able to buy the phone!");
+                    Console.WriteLine($"Her brother received {brotherMoney}$ from Lilly!");
+                    Console.WriteLine($"After the purchase Lilly has {lillyMoney - phonePrice}$ remaining!");
                     break;
                 }                
             }
